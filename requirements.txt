@@ -31,7 +31,7 @@ PyMySQL==0.9.3
 pyOpenSSL==18.0.0
 PySocks==1.6.8
 pytz==2018.6
-requests==2.19.1
+requests==2.20.0
 ruamel-yaml==0.15.46
 six==1.11.0
 stevedore==1.30.0

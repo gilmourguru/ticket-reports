@@ -1,0 +1,10 @@
+{% extends 'tickets/base.html' %}
+{% block content %}
+  <ht class="mt-2">You have been logged out.</ht>  
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            <a class="btn btn-outline-secondary" href="{% url 'login' %}">Log In Again</a>
+        </small>
+    </div>
+
+{% endblock content %}

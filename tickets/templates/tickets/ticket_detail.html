@@ -1,0 +1,27 @@
+{% extends 'tickets/base.html' %}
+{% load ticket_extras %}
+{% block content %}
+<div class="container justify-content-center">
+    <h1>Ticket #{{ object.pk }} Detail </h1>
+    <article class="media content-section">
+        <img src="{{ object.author.profile.image.url }}" alt="" class="rounded-circle article-img">
+        <div class="media-body">
+            <div class="article-metadata">
+                <a href="{% url 'user-tickets' object.author.username %}" class="mr-2">{{ object.author }}</a>
+                <small class="text-muted">{{ object.date_created|date:'F d, Y' }}</small>
+                {% if object.author == user or request.user|has_group:"Managers" or request.user|has_group:"Help Desk" %}
+                <div>
+                    <a href="{% url 'ticket-update' object.id %}" class="btn btn-secondary btn-sm mt-1 mb-1">Update</a>
+                    <a href="{% url 'ticket-delete' object.id %}" class="btn btn-danger btn-sm mt-1 mb-1">Delete</a>
+                </div>
+                
+                
+                {% endif %}
+            </div>
+            <h2 class="mt-2 article-title">{{ object.title }}</h2>
+            <p class="article-content">{{ object.content }}</p>
+            <p class="article-content">Status: {{ object.status }}</p>
+        </div>
+    </article>
+</div>
+{% endblock %}
